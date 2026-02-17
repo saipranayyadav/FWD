@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coffee Heaven</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    display:flex;
+}
+
+/* Sidebar */
+.sidebar{
+    width:260px;
+    background:#e3c29b;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:20px;
+    text-align:center;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    margin:0 auto 30px;
+    border-radius:50%;
+    background:#d2a679;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+}
+
+/* Plain clickable text */
+.nav span{
+    display:block;
+    margin:12px 0;
+    font-size:16px;
+    color:#4a2c16;
+    cursor:pointer;
+}
+
+.nav span:hover{
+    text-decoration:underline;
+}
+
+.social{
+    margin-top:40px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* Main */
+.main{
+    margin-left:260px;
+    flex:1;
+}
+
+/* Hero */
+.hero{
+    height:420px;
+    background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93") center/cover no-repeat;
+}
+
+.overlay{
+    background:rgba(0,0,0,0.5);
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+/* Products */
+.products{
+    padding:50px;
+    text-align:center;
+}
+
+.products h2{
+    font-size:32px;
+    color:#4a2c16;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:flex;
+    gap:25px;
+}
+
+.card{
+    flex:1;
+    border:2px dashed #c7a17a;
+    cursor:pointer;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:12px 0;
+    color:#4a2c16;
+}
+
+/* Modal */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-box{
+    background:white;
+    padding:25px;
+    width:350px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.modal-box button{
+    margin-top:15px;
+    padding:8px 20px;
+    background:#6f4e37;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="logo">☕</div>
+
+    <div class="nav">
+        <span onclick="showMsg('Home')">Home</span>
+        <span onclick="showMsg('About')">About</span>
+        <span onclick="showMsg('Menu')">Menu</span>
+        <span onclick="showMsg('Contact')">Contact</span>
+    </div>
+
+    <div class="social">
+        <span onclick="showMsg('Facebook')">f</span>
+        <span onclick="showMsg('Instagram')">📷</span>
+        <span onclick="showMsg('Twitter')">🐦</span>
+        <span onclick="showMsg('LinkedIn')">in</span>
+    </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+<!-- Hero -->
+<div class="hero">
+    <div class="overlay">
+        <div>
+            <h1>Coffee Heaven</h1>
+            <p>Fresh Coffee & Delicious Foods</p>
+        </div>
+    </div>
+</div>
+
+<!-- Coffee -->
+<div class="products">
+<h2>☕ Coffee</h2>
+
+<div class="cards">
+    <div class="card" onclick="showDetails('Black Coffee','₹120','Strong and pure black coffee.')">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+        <h3>Black Coffee</h3>
+    </div>
+
+    <div class="card" onclick="showDetails('Hot Coffee','₹150','Milk coffee with creamy foam.')">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+        <h3>Hot Coffee</h3>
+    </div>
+
+    <div class="card" onclick="showDetails('Dark Coffee','₹180','Dark roasted coffee with intense flavor.')">
+        <img src="darkcoffee.jpg">
+        <h3>Dark Coffee</h3>
+    </div>
+</div>
+</div>
+
+<!-- Food -->
+<div class="products">
+<h2>🍴 Foods</h2>
+
+<div class="cards">
+    <div class="card" onclick="showDetails('Pizza','₹299','Cheesy pizza with fresh toppings.')">
+        <img src="pizza.jpg">
+        <h3>Pizza</h3>
+    </div>
+
+    <div class="card" onclick="showDetails('Burger','₹149','Crispy veg burger with fresh veggies.')">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+        <h3>Burger</h3>
+    </div>
+
+    <div class="card" onclick="showDetails('French Fries','₹99','Golden crispy french fries.')">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877">
+        <h3>French Fries</h3>
+    </div>
+</div>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h3 id="title"></h3>
+        <p id="price"></p>
+        <p id="desc"></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+function showMsg(text){
+    alert(text + " clicked!");
+}
+
+function showDetails(name, price, desc){
+    document.getElementById("title").innerText = name;
+    document.getElementById("price").innerText = "Price: " + price;
+    document.getElementById("desc").innerText = desc;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
