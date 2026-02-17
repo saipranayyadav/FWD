@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodShare – Donate Excess Food</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f9f4;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #e8f5e9;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>FoodShare</h1>
+    <p>Donate Excess Food • Help Communities</p>
+</header>
+
+<section>
+    <h2>Donate Food</h2>
+    <div class="card">
+        <form onsubmit="showDonation(event)">
+            <label>Food Item Name</label>
+            <input type="text" id="food" required>
+
+            <label>Quantity</label>
+            <input type="text" id="quantity" required>
+
+            <label>Pickup Location</label>
+            <input type="text" id="location" required>
+
+            <label>Best Before</label>
+            <input type="date" id="date" required>
+
+            <label>Additional Details</label>
+            <textarea id="details"></textarea>
+
+            <button type="submit">Submit Donation</button>
+        </form>
+    </div>
+</section>
+
+<section>
+    <h2>Submitted Donation</h2>
+    <div class="card" id="output">
+        <p>No donation submitted yet.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 FoodShare | Share Food, Spread Care ❤️</p>
+</footer>
+
+<script>
+    function showDonation(event) {
+        event.preventDefault();
+
+        const food = document.getElementById("food").value;
+        const quantity = document.getElementById("quantity").value;
+        const location = document.getElementById("location").value;
+        const date = document.getElementById("date").value;
+        const details = document.getElementById("details").value;
+
+        document.getElementById("output").innerHTML = `
+            <p><strong>Food Item:</strong> ${food}</p>
+            <p><strong>Quantity:</strong> ${quantity}</p>
+            <p><strong>Location:</strong> ${location}</p>
+            <p><strong>Best Before:</strong> ${date}</p>
+            <p><strong>Details:</strong> ${details}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
