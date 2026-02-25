@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Number Literals Example</h2>
+<button onclick="showNumbers()">Show Numbers</button>
+<h3 id="output"></h3>
+
+<script>
+
+function showNumbers() {
+
+    let hexNumber = 0xFF;   // Hexadecimal
+    let scientific = 1e3;   // Scientific
+
+    document.getElementById("output").innerHTML =
+        "Hexadecimal 0xFF = " + hexNumber + "<br>" +
+        "Scientific 1e3 = " + scientific;
+}
+
+</script>
+
+</body>
+</html>

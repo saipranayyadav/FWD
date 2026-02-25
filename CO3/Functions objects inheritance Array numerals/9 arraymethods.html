@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Array Methods Example</h2>
+<button onclick="runArrayMethods()">Run Array Methods</button>
+<h3 id="output"></h3>
+
+<script>
+
+function runArrayMethods() {
+
+    let arr1 = [5, 2, 9];
+    let arr2 = [10, 20];
+
+    // push() → Add element
+    arr1.push(15);
+
+    // pop() → Remove last element
+    arr1.pop();
+
+    // sort() → Proper numeric sort
+    let sorted = [...arr1].sort((a, b) => a - b);
+
+    // concat() → Merge arrays
+    let merged = arr1.concat(arr2);
+
+    // reverse() → Reverse array
+    let reversed = [...arr1].reverse();
+
+    let numbers = [1, 2, 3, 4, 5];
+
+    // map()
+    let squares = numbers.map(num => num * num);
+
+    // filter()
+    let even = numbers.filter(num => num % 2 === 0);
+
+    // reduce()
+    let sum = numbers.reduce((total, num) => total + num, 0);
+
+    document.getElementById("output").innerHTML =
+        "Original Array: " + arr1 + "<br><br>" +
+        "After Sort: " + sorted + "<br><br>" +
+        "After Concat: " + merged + "<br><br>" +
+        "After Reverse: " + reversed + "<br><br>" +
+        "Squares (map): " + squares + "<br>" +
+        "Even Numbers (filter): " + even + "<br>" +
+        "Sum (reduce): " + sum;
+}
+
+</script>
+
+</body>
+</html>
