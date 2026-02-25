@@ -1,0 +1,34 @@
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  padding-top: 40px;
+}
+/* Portrait Mode */
+@media (orientation: portrait) {
+  body {
+    background-color: lightpink;
+  }
+  h1::after {
+    content: " - Portrait Mode";
+  }
+}
+/* Landscape Mode */
+@media (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+  h1::after {
+    content: " - Landscape Mode";
+  }
+}
+</style>
+</head>
+<body>
+<h1>Media Query</h1>
+<p>Rotate your device or resize the browser.</p>
+</body>
+</html>

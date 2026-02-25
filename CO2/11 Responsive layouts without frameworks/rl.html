@@ -1,0 +1,27 @@
+<html>
+<head>
+<style>
+.container {
+  display: flex;
+}
+.box {
+  flex: 50px;
+  padding: 20px;
+  background: lightblue;
+}
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="box">ITEM 1</div>
+  <br>
+  <br>
+  <div class="box">ITEM 2</div>
+</div>
+</body>
+</html>
